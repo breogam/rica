@@ -1,0 +1,36 @@
+{{> head}}
+{{> header}}
+
+<main id="main" class="blog-listing" role="main">
+  <header class="listing-header section" data-reveal>
+    <div class="container">
+      <p class="listing-header__label tag-label">Posts tagged</p>
+      <h1 class="listing-header__title">{{name}}</h1>
+      {{#if description}}
+        <p class="listing-header__subtitle">{{description}}</p>
+      {{/if}}
+    </div>
+  </header>
+
+  {{#if posts}}
+    <div class="container">
+      <ol class="post-list" role="list">
+        {{#each posts}}
+          <li class="post-list__item" data-reveal>
+            {{> post-card}}
+          </li>
+        {{/each}}
+      </ol>
+
+      {{> pagination}}
+    </div>
+  {{else}}
+    <div class="container">
+      <div class="writing__empty" data-reveal>
+        <p>No posts with this tag yet.</p>
+      </div>
+    </div>
+  {{/if}}
+</main>
+
+{{> footer}}

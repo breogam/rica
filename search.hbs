@@ -1,0 +1,46 @@
+{{> head}}
+{{> header}}
+
+<main id="main" class="blog-listing" role="main">
+  <header class="listing-header section" data-reveal>
+    <div class="container content-narrow">
+      <h1 class="listing-header__title">Search</h1>
+      <form class="search-form" action="{{siteUrl}}/search/" method="get" role="search">
+        <label for="search-input" class="visually-hidden">Search</label>
+        <input
+          class="search-form__input"
+          type="search"
+          id="search-input"
+          name="q"
+          value="{{searchQuery}}"
+          placeholder="Search posts&hellip;"
+          aria-label="Search posts"
+        >
+        <button class="search-form__submit btn btn--primary" type="submit">Search</button>
+      </form>
+    </div>
+  </header>
+
+  {{#if searchQuery}}
+    <div class="container content-narrow">
+      {{#if posts}}
+        <p class="search-results__count" data-reveal>
+          Search results for &ldquo;{{searchQuery}}&rdquo;
+        </p>
+        <ol class="post-list" role="list">
+          {{#each posts}}
+            <li class="post-list__item" data-reveal>
+              {{> post-card}}
+            </li>
+          {{/each}}
+        </ol>
+      {{else}}
+        <div class="writing__empty" data-reveal>
+          <p>No results found for &ldquo;{{searchQuery}}&rdquo;. Try a different search term.</p>
+        </div>
+      {{/if}}
+    </div>
+  {{/if}}
+</main>
+
+{{> footer}}

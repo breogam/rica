@@ -1,0 +1,20 @@
+<section class="hero" aria-label="Introduction">
+  {{#if featuredImage}}
+    <img class="hero__image" src="{{featuredImage}}" alt="" loading="eager" aria-hidden="true">
+  {{else}}
+    <div class="hero__image hero__image--placeholder" aria-hidden="true"></div>
+  {{/if}}
+  <div class="hero__grain" aria-hidden="true"></div>
+  <div class="hero__scrim" aria-hidden="true"></div>
+  <div class="hero__content container">
+    <h1 class="hero__headline" id="hero-headline">{{@config.custom.heroHeadline}}</h1>
+    <p class="hero__subline">{{@config.custom.heroSubline}}</p>
+  </div>
+  <div class="hero__scroll-cue" aria-hidden="true">
+    <span>Scroll</span>
+    <svg width="16" height="24" viewBox="0 0 16 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <line x1="8" y1="2" x2="8" y2="18"></line>
+      <polyline points="2 12 8 18 14 12"></polyline>
+    </svg>
+  </div>
+</section>

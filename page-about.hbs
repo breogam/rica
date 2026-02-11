@@ -1,0 +1,79 @@
+{{> head}}
+{{> header}}
+
+<main id="main" role="main">
+  <article class="about-page">
+
+    {{!-- About header: asymmetric split --}}
+    <header class="about-header section">
+      <div class="about-header__inner container">
+        <div class="about-header__image" data-reveal>
+          {{#if featuredImage}}
+            <img src="{{featuredImage}}" alt="{{@config.custom.siteTitle}}" loading="eager">
+          {{else}}
+            <div class="about-header__placeholder" aria-hidden="true"></div>
+          {{/if}}
+        </div>
+        <div class="about-header__content" data-reveal data-reveal-delay="1">
+          <h1 class="about-header__name">{{@config.custom.siteTitle}}</h1>
+          <p class="about-header__title">{{@config.custom.siteTagline}}</p>
+          <div class="about-header__bio">
+            {{{content}}}
+          </div>
+        </div>
+      </div>
+    </header>
+
+    {{!-- Journey timeline --}}
+    <section class="timeline section" data-reveal>
+      <div class="container content-narrow">
+        <h2 class="timeline__heading">The journey</h2>
+        <ol class="timeline__list" role="list">
+          <li class="timeline__entry" data-reveal data-reveal-delay="0">
+            <span class="timeline__year">2008</span>
+            <div class="timeline__text">
+              <strong>Public Relations Career Begins</strong>
+              <p>Joined one of the largest PR agencies in the Philippines, managing campaigns for leading national and multinational brands.</p>
+            </div>
+          </li>
+          <li class="timeline__entry" data-reveal data-reveal-delay="1">
+            <span class="timeline__year">2011</span>
+            <div class="timeline__text">
+              <strong>Brand Communications &amp; Crisis Management</strong>
+              <p>Led award-winning brand communications and crisis management initiatives for high-profile clients across industries.</p>
+            </div>
+          </li>
+          <li class="timeline__entry" data-reveal data-reveal-delay="2">
+            <span class="timeline__year">2014</span>
+            <div class="timeline__text">
+              <strong>Relocated to the United States</strong>
+              <p>Moved to Chicago and began building a consultancy practice spanning design, consumer finance, real estate, and retail.</p>
+            </div>
+          </li>
+          <li class="timeline__entry" data-reveal data-reveal-delay="3">
+            <span class="timeline__year">Now</span>
+            <div class="timeline__text">
+              <strong>Storytelling &amp; Marketing Leadership</strong>
+              <p>Specializing in brand storytelling, content strategy, and marketing communications that connect brands with audiences through authentic narratives.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    {{!-- Philosophy --}}
+    <section class="philosophy section" data-reveal>
+      <div class="container content-narrow">
+        <blockquote class="pull-quote">
+          <p>Every brand has a story worth telling well. My job is to find it, shape it, and make sure it reaches the people who need to hear it.</p>
+        </blockquote>
+      </div>
+    </section>
+
+    {{!-- CTA --}}
+    {{> contact-cta}}
+
+  </article>
+</main>
+
+{{> footer}}

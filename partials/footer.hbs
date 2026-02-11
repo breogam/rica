@@ -1,0 +1,46 @@
+<footer class="footer" role="contentinfo">
+  <div class="footer__inner container">
+    <div class="footer__brand">
+      <a href="{{siteUrl}}" class="footer__wordmark">{{@config.custom.siteTitle}}</a>
+      <p class="footer__tagline">{{@config.custom.footerTagline}}</p>
+    </div>
+
+    {{#if footerMenu}}
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <ul class="footer__menu">
+          {{#each footerMenu}}
+            <li class="footer__menu-item">
+              <a href="{{url}}" class="footer__link"{{#if isExternalUrl}} target="_blank" rel="noopener noreferrer"{{/if}}>
+                {{label}}
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+      </nav>
+    {{/if}}
+
+    <div class="footer__social">
+      {{#if @config.custom.linkedinUrl}}
+        <a href="{{@config.custom.linkedinUrl}}" class="footer__social-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      {{/if}}
+      {{#if @config.custom.contactEmail}}
+        <a href="mailto:{{@config.custom.contactEmail}}" class="footer__social-link">Email</a>
+      {{/if}}
+      {{#if @config.custom.twitterUrl}}
+        <a href="{{@config.custom.twitterUrl}}" class="footer__social-link" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+      {{/if}}
+      {{#if @config.custom.instagramUrl}}
+        <a href="{{@config.custom.instagramUrl}}" class="footer__social-link" target="_blank" rel="noopener noreferrer">Instagram</a>
+      {{/if}}
+    </div>
+
+    <p class="footer__copyright">
+      &copy; {{currentYear}} {{@config.custom.copyrightName}}. All rights reserved.
+    </p>
+  </div>
+</footer>
+
+<script src="{{js "main.js"}}" defer></script>
+{{{footer}}}
+</body>
+</html>

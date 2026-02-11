@@ -1,0 +1,81 @@
+{{> head}}
+{{> header}}
+
+{{#if isHomepage}}
+
+  {{!-- Homepage: scroll-as-narrative sections --}}
+  <main id="main" role="main">
+    {{> hero}}
+    {{> intro}}
+    {{> expertise}}
+    {{> featured-image}}
+    {{> selected-writing}}
+    {{> contact-cta}}
+  </main>
+
+{{else}}
+
+  {{!-- Blog listing --}}
+  <main id="main" class="blog-listing" role="main">
+    <header class="listing-header section" data-reveal>
+      <div class="container">
+        <h1 class="listing-header__title">Writing</h1>
+        <p class="listing-header__subtitle">On storytelling, marketing, and the work of connecting with people.</p>
+      </div>
+    </header>
+
+    {{#if posts}}
+      <div class="container">
+        {{!-- Featured first post --}}
+        {{#each posts}}
+          {{#if @first}}
+            <article class="post-featured" data-reveal>
+              {{#if featuredImage}}
+                <a href="{{url}}" class="post-featured__image-link">
+                  <img class="post-featured__image" src="{{featuredImage}}" alt="{{title}}" loading="eager">
+                </a>
+              {{/if}}
+              <div class="post-featured__content">
+                <div class="post-list__meta">
+                  <time class="post-list__date" datetime="{{date}}">{{formatDate date "MMMM D, YYYY"}}</time>
+                  {{#if tags.[0]}}
+                    <span class="tag-label">{{tags.[0].name}}</span>
+                  {{/if}}
+                </div>
+                <h2 class="post-featured__title">
+                  <a href="{{url}}">{{title}}</a>
+                </h2>
+                {{#if excerpt}}
+                  <p class="post-featured__excerpt">{{truncate excerpt 220}}</p>
+                {{/if}}
+                <a href="{{url}}" class="btn btn--text">Read more</a>
+              </div>
+            </article>
+          {{/if}}
+        {{/each}}
+
+        {{!-- Remaining posts as archival list --}}
+        <ol class="post-list" role="list">
+          {{#each posts}}
+            {{#unless @first}}
+              <li class="post-list__item" data-reveal>
+                {{> post-card}}
+              </li>
+            {{/unless}}
+          {{/each}}
+        </ol>
+
+        {{> pagination}}
+      </div>
+    {{else}}
+      <div class="container">
+        <div class="writing__empty" data-reveal>
+          <p>No posts yet. Check back soon for new writing.</p>
+        </div>
+      </div>
+    {{/if}}
+  </main>
+
+{{/if}}
+
+{{> footer}}

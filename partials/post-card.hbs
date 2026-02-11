@@ -1,0 +1,14 @@
+<article class="post-list__entry">
+  <div class="post-list__meta">
+    <time class="post-list__date" datetime="{{date}}">{{formatDate date "MMMM D, YYYY"}}</time>
+    {{#if tags.[0]}}
+      <span class="tag-label">{{tags.[0].name}}</span>
+    {{/if}}
+  </div>
+  <h3 class="post-list__title">
+    <a href="{{url}}">{{title}}</a>
+  </h3>
+  {{#if excerpt}}
+    <p class="post-list__excerpt">{{truncate excerpt 140}}</p>
+  {{/if}}
+</article>

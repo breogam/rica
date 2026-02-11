@@ -1,0 +1,59 @@
+{{> head}}
+{{> header}}
+
+<main id="main" role="main">
+  <article class="portfolio-page">
+
+    <header class="listing-header section" data-reveal>
+      <div class="container">
+        <h1 class="listing-header__title">{{title}}</h1>
+        {{#if excerpt}}
+          <p class="listing-header__subtitle">{{excerpt}}</p>
+        {{/if}}
+      </div>
+    </header>
+
+    {{!-- Page content (can include portfolio entries via Publii editor) --}}
+    {{#if content}}
+      <div class="portfolio-content container" data-reveal>
+        <div class="content-narrow">
+          {{{content}}}
+        </div>
+      </div>
+    {{/if}}
+
+    {{!-- Portfolio grid: posts tagged "portfolio" --}}
+    {{#if posts}}
+      <section class="portfolio-grid container" data-reveal>
+        {{#each posts}}
+          <article class="portfolio-grid__item" data-reveal data-reveal-delay="{{@index}}">
+            <a href="{{url}}" class="portfolio-grid__link">
+              {{#if featuredImage}}
+                <img class="portfolio-grid__image" src="{{featuredImage}}" alt="{{title}}" loading="lazy">
+              {{else}}
+                <div class="portfolio-grid__placeholder" aria-hidden="true"></div>
+              {{/if}}
+              <div class="portfolio-grid__overlay">
+                <h3 class="portfolio-grid__title">{{title}}</h3>
+                {{#if tags.[0]}}
+                  <span class="tag-label">{{tags.[0].name}}</span>
+                {{/if}}
+              </div>
+            </a>
+          </article>
+        {{/each}}
+      </section>
+    {{else}}
+      <div class="container">
+        <div class="writing__empty" data-reveal>
+          <p>Portfolio pieces are on their way. In the meantime, <a href="{{siteUrl}}/contact/">get in touch</a> to learn more about my work.</p>
+        </div>
+      </div>
+    {{/if}}
+
+    {{> contact-cta}}
+
+  </article>
+</main>
+
+{{> footer}}

@@ -1,0 +1,33 @@
+<section class="writing section" data-reveal>
+  <div class="writing__inner container">
+    <h2 class="writing__heading">Selected writing</h2>
+
+    {{#if posts}}
+      <ol class="post-list" role="list">
+        {{#each posts}}
+          <li class="post-list__item" data-reveal data-reveal-delay="{{@index}}">
+            <article class="post-list__entry">
+              <div class="post-list__meta">
+                <time class="post-list__date" datetime="{{date}}">{{formatDate date "MMMM D, YYYY"}}</time>
+                {{#if tags.[0]}}
+                  <span class="tag-label">{{tags.[0].name}}</span>
+                {{/if}}
+              </div>
+              <h3 class="post-list__title">
+                <a href="{{url}}">{{title}}</a>
+              </h3>
+              {{#if excerpt}}
+                <p class="post-list__excerpt">{{truncate excerpt 140}}</p>
+              {{/if}}
+            </article>
+          </li>
+        {{/each}}
+      </ol>
+      <a href="{{siteUrl}}/blog/" class="btn btn--text writing__all-link">Read all posts</a>
+    {{else}}
+      <div class="writing__empty">
+        <p>Writing is on its way. Check back soon, or <a href="{{siteUrl}}/contact/">get in touch</a> to start a conversation.</p>
+      </div>
+    {{/if}}
+  </div>
+</section>

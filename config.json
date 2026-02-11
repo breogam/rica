@@ -1,0 +1,207 @@
+{
+  "name": "rica-bouso",
+  "version": "1.0.0",
+  "author": "Rica Bouso",
+  "license": "MIT",
+  "renderer": {
+    "relatedPostsNumber": 3,
+    "tagsPostsNumber": 10,
+    "authorPostsNumber": 10,
+    "searchPostsNumber": 20,
+    "postsPerPage": 10,
+    "tagPostsPerPage": 10
+  },
+  "supportedFeatures": {
+    "menuPosition": ["main", "footer"],
+    "tagDescription": true,
+    "postImage": true,
+    "authorBio": true,
+    "authorImage": true
+  },
+  "pageTemplates": {
+    "about": "About Page",
+    "portfolio": "Portfolio Page",
+    "contact": "Contact Page"
+  },
+  "menus": {
+    "main": {
+      "name": "Main Navigation",
+      "position": "header",
+      "items": {
+        "menuItem": {
+          "label": "Menu Item",
+          "link": "#"
+        }
+      }
+    },
+    "footer": {
+      "name": "Footer Navigation",
+      "position": "footer",
+      "items": {
+        "menuItem": {
+          "label": "Menu Item",
+          "link": "#"
+        }
+      }
+    }
+  },
+  "files": [
+    "helpers.js",
+    "dynamic-assets-mapping.js"
+  ],
+  "customConfig": [
+    {
+      "name": "siteTitle",
+      "label": "Name / Wordmark Text",
+      "group": "Brand Identity",
+      "value": "Rica Bouso",
+      "type": "text"
+    },
+    {
+      "name": "siteTagline",
+      "label": "Tagline",
+      "group": "Brand Identity",
+      "value": "Storyteller. Marketing Leader. Content Strategist.",
+      "type": "text"
+    },
+    {
+      "name": "accentColor",
+      "label": "Accent Color",
+      "group": "Brand Identity",
+      "value": "#c45d3e",
+      "type": "color"
+    },
+    {
+      "name": "bgColor",
+      "label": "Background Color",
+      "group": "Brand Identity",
+      "value": "#f5f1ec",
+      "type": "color"
+    },
+    {
+      "name": "textColor",
+      "label": "Text Color",
+      "group": "Brand Identity",
+      "value": "#2a2420",
+      "type": "color"
+    },
+    {
+      "name": "heroHeadline",
+      "label": "Hero Headline",
+      "group": "Hero Section",
+      "value": "Stories that move people. Strategy that moves numbers.",
+      "type": "text"
+    },
+    {
+      "name": "heroSubline",
+      "label": "Hero Subline",
+      "group": "Hero Section",
+      "value": "Rica Bouso — Storyteller, marketing leader, and content strategist based in Chicago.",
+      "type": "textarea"
+    },
+    {
+      "name": "introText",
+      "label": "Introduction Text",
+      "group": "Introduction Section",
+      "value": "I believe every brand has a story worth telling well. For over a decade, I've helped organizations find their voice, connect with their audiences, and turn ideas into narratives that resonate. From award-winning PR campaigns in Manila to brand strategy in Chicago, my work lives at the intersection of creativity and clarity.",
+      "type": "textarea"
+    },
+    {
+      "name": "formspreeId",
+      "label": "Formspree Form ID",
+      "group": "Contact",
+      "note": "The ID from your Formspree form URL (e.g. 'xrgvknqd' from https://formspree.io/f/xrgvknqd).",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "name": "contactEmail",
+      "label": "Email Address",
+      "group": "Contact",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "name": "linkedinUrl",
+      "label": "LinkedIn URL",
+      "group": "Contact",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "name": "twitterUrl",
+      "label": "X / Twitter URL",
+      "group": "Contact",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "name": "instagramUrl",
+      "label": "Instagram URL",
+      "group": "Contact",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "name": "footerTagline",
+      "label": "Footer Tagline",
+      "group": "Footer",
+      "value": "Telling stories that matter.",
+      "type": "text"
+    },
+    {
+      "name": "copyrightName",
+      "label": "Copyright Name",
+      "group": "Footer",
+      "value": "Rica Bouso",
+      "type": "text"
+    },
+    {
+      "name": "newsletterUrl",
+      "label": "Newsletter Signup URL",
+      "group": "Newsletter",
+      "note": "URL to your newsletter signup page (Substack, Buttondown, etc.).",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "name": "newsletterCTA",
+      "label": "Newsletter CTA Text",
+      "group": "Newsletter",
+      "value": "Subscribe to my writing",
+      "type": "text"
+    },
+    {
+      "name": "enableGrain",
+      "label": "Enable Paper Grain Texture",
+      "group": "Effects",
+      "note": "Adds a subtle analog grain overlay for the creative-process aesthetic.",
+      "value": true,
+      "type": "checkbox"
+    },
+    {
+      "name": "enableScrollAnimations",
+      "label": "Enable Scroll Animations",
+      "group": "Effects",
+      "note": "Enables scroll-as-narrative reveal animations. Respects prefers-reduced-motion.",
+      "value": true,
+      "type": "checkbox"
+    }
+  ],
+  "fontBody": {
+    "type": "google",
+    "options": {
+      "family": "Source Sans 3",
+      "variants": "400,400i,500,600,700",
+      "category": "sans-serif"
+    }
+  },
+  "fontHeadings": {
+    "type": "google",
+    "options": {
+      "family": "Fraunces",
+      "variants": "400,400i,600,700",
+      "category": "serif"
+    }
+  }
+}

@@ -1,0 +1,111 @@
+{{> head}}
+{{> header}}
+
+<main id="main" role="main">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+    {{!-- Post header --}}
+    <header class="post__header">
+      <div class="container">
+        {{#if featuredImage}}
+          <figure class="post__hero-image" data-reveal>
+            <img src="{{featuredImage}}" alt="{{title}}" loading="eager" itemprop="image">
+          </figure>
+        {{/if}}
+
+        <div class="post__header-content content-narrow" data-reveal>
+          {{#if tags.[0]}}
+            <span class="tag-label">{{tags.[0].name}}</span>
+          {{/if}}
+          <h1 class="post__title" itemprop="headline">{{title}}</h1>
+          <div class="post__meta">
+            <time class="post__date" datetime="{{date}}" itemprop="datePublished">
+              {{formatDate date "MMMM D, YYYY"}}
+            </time>
+            <span class="post__reading-time">{{readingTime @post.text}}</span>
+          </div>
+          {{#if excerpt}}
+            <p class="post__subtitle" itemprop="description">{{excerpt}}</p>
+          {{/if}}
+        </div>
+      </div>
+    </header>
+
+    {{!-- Post body --}}
+    <div class="post__content content-narrow" itemprop="articleBody" data-reveal>
+      {{{content}}}
+    </div>
+
+    {{!-- Post footer --}}
+    <footer class="post__footer content-narrow" data-reveal>
+      {{!-- Tags --}}
+      {{#if tags}}
+        <div class="post__tags">
+          <span class="post__tags-label">Tagged with:</span>
+          {{#each tags}}
+            <a href="{{url}}" class="post__tag tag-label">{{name}}</a>
+          {{/each}}
+        </div>
+      {{/if}}
+
+      {{!-- Share --}}
+      <div class="post__share">
+        <span class="post__share-label">Share:</span>
+        <a href="https://twitter.com/intent/tweet?url={{encodeURIComponent url}}&text={{encodeURIComponent title}}" target="_blank" rel="noopener noreferrer" class="post__share-link">X / Twitter</a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{encodeURIComponent url}}" target="_blank" rel="noopener noreferrer" class="post__share-link">LinkedIn</a>
+      </div>
+
+      {{!-- Author box --}}
+      {{#if @config.custom.siteTitle}}
+        <div class="author-box" itemscope itemprop="author" itemtype="http://schema.org/Person">
+          {{#if author.avatar}}
+            <img class="author-box__avatar" src="{{author.avatar}}" alt="{{author.name}}" loading="lazy">
+          {{/if}}
+          <div class="author-box__info">
+            <span class="author-box__name" itemprop="name">{{author.name}}</span>
+            {{#if author.description}}
+              <p class="author-box__bio" itemprop="description">{{author.description}}</p>
+            {{/if}}
+            <a href="{{siteUrl}}/about/" class="btn btn--text">About me</a>
+          </div>
+        </div>
+      {{/if}}
+    </footer>
+
+    {{!-- Inline CTA --}}
+    <div class="post__cta content-narrow" data-reveal>
+      <div class="post__cta-inner">
+        <p class="post__cta-text">Enjoyed this? <a href="{{siteUrl}}/contact/">Get in touch</a> to work together.</p>
+      </div>
+    </div>
+
+    {{!-- Related posts --}}
+    {{#if relatedPosts}}
+      <section class="related section" data-reveal>
+        <div class="container content-narrow">
+          <h2 class="related__heading">More writing</h2>
+          <ol class="post-list" role="list">
+            {{#each relatedPosts}}
+              <li class="post-list__item" data-reveal data-reveal-delay="{{@index}}">
+                <article class="post-list__entry">
+                  <div class="post-list__meta">
+                    <time class="post-list__date" datetime="{{date}}">{{formatDate date "MMMM D, YYYY"}}</time>
+                    {{#if tags.[0]}}
+                      <span class="tag-label">{{tags.[0].name}}</span>
+                    {{/if}}
+                  </div>
+                  <h3 class="post-list__title">
+                    <a href="{{url}}">{{title}}</a>
+                  </h3>
+                </article>
+              </li>
+            {{/each}}
+          </ol>
+        </div>
+      </section>
+    {{/if}}
+
+  </article>
+</main>
+
+{{> footer}}
