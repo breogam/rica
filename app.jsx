@@ -1,5 +1,5 @@
 /* global React, ReactDOM, Nav, Hero, About, Stats, SelectedWork, Experience, Capabilities, EduAff, Contact,
-   useTweaks, TweaksPanel, TweakSection, TweakColor, TweakSlider, TweakRadio */
+   useTweaks, useContent, TweaksPanel, TweakSection, TweakColor, TweakSlider, TweakRadio */
 const { useEffect } = React;
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
@@ -93,24 +93,27 @@ function isDark(hex) {
 }
 
 function App() {
+  const content = useContent();
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
 
   useEffect(() => {
     applyTheme({ accent: t.accent, paper: t.paper });
   }, [t.accent, t.paper]);
 
+  if (!content) return null;
+
   return (
     <>
       <Nav />
       <main>
-        <Hero />
-        <About />
-        <Stats duration={t.statSpeed} />
-        <SelectedWork />
-        <Experience />
-        <Capabilities />
-        <EduAff />
-        <Contact />
+        <Hero content={content} />
+        <About content={content} />
+        <Stats content={content} duration={t.statSpeed} />
+        <SelectedWork content={content} />
+        <Experience content={content} />
+        <Capabilities content={content} />
+        <EduAff content={content} />
+        <Contact content={content} />
       </main>
 
       <TweaksPanel title="Tweaks">

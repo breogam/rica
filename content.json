@@ -1,0 +1,143 @@
+{
+  "meta": {
+    "title": "Rica Bouso — Communications strategist",
+    "description": "Rica Bouso, communications strategist. Director of Marketing at the Chicago Public Library Foundation. 15 years across nonprofit, agency, and corporate work in Asia and the US."
+  },
+  "hero": {
+    "title": "Communications strategist building brands rooted in mission.",
+    "metaLine1": "15 years. Asia + US.",
+    "metaLine2": "Currently Director of Marketing at the Chicago Public Library Foundation."
+  },
+  "about": {
+    "paragraph1": "For 15 years I have translated organizational purpose into measurable growth: at one of the largest library systems in the country, at a global business services company supporting 15,000 employees, and at agencies serving multi-industry clients.",
+    "pullQuote": "I treat communications as infrastructure.",
+    "paragraph2": "Build the system, ground it in mission, and the metrics follow. I work the full stack of integrated marketing communications: brand strategy, audience development, content systems, digital marketing, PR, crisis response, and stakeholder management.",
+    "paragraph3": "I am equally comfortable in the strategy room and the content calendar. Big ideas matter; so does the email that ships on Tuesday."
+  },
+  "stats": [
+    { "value": 22, "suffix": "M+", "prefix": "", "decimals": 0, "accent": true,  "label": "Views / Live from the Library" },
+    { "value": 800, "suffix": "M",  "prefix": "", "decimals": 0, "accent": false, "label": "PR impressions / 37 countries" },
+    { "value": 117, "suffix": "%",  "prefix": "", "decimals": 0, "accent": false, "label": "Lift in social engagement" },
+    { "value": 39,  "suffix": "%",  "prefix": "", "decimals": 0, "accent": false, "label": "Email open rate / industry 21%" },
+    { "value": 2,   "suffix": "×",  "prefix": "", "decimals": 0, "accent": false, "label": "Website traffic" },
+    { "value": 200, "suffix": "+",  "prefix": "", "decimals": 0, "accent": false, "label": "Qualified leads / single campaign" },
+    { "value": 81,  "suffix": "",   "prefix": "", "decimals": 0, "accent": false, "label": "Branches / 77 neighborhoods" },
+    { "value": 2,   "suffix": "M",  "prefix": "$","decimals": 0, "accent": false, "label": "Event budget / 15,000-person programs" }
+  ],
+  "work": [
+    {
+      "year": "2020 — 2024",
+      "org": "Chicago Public Library Foundation",
+      "title": "Live from the Library",
+      "desc": "Led marketing for a flagship cultural program that reached 22M+ viewers and generated 800M PR impressions across 37 countries.",
+      "metric": "22M+",
+      "metricNote": "Viewers"
+    },
+    {
+      "year": "2022",
+      "org": "Chicago Public Library Foundation",
+      "title": "Donor Journey Campaign",
+      "desc": "Designed and shipped an end-to-end nurture pipeline that converted general audiences into 200+ high-quality leads.",
+      "metric": "200+",
+      "metricNote": "Qualified Leads"
+    },
+    {
+      "year": "2021",
+      "org": "Chicago Public Library Foundation",
+      "title": "Brand System Rebuild",
+      "desc": "Authored the brand voice and guide adopted across internal and external channels. Doubled site traffic. Lifted social engagement 117%. Pushed email open rates to 39%.",
+      "metric": "117%",
+      "metricNote": "Social Lift"
+    },
+    {
+      "year": "2020",
+      "org": "Chicago Public Library Foundation",
+      "title": "Live From Crisis: COVID-19 Communications",
+      "desc": "Led crisis communications across 81 library branches during the pandemic, holding brand coherence while the operating reality shifted weekly.",
+      "metric": "81",
+      "metricNote": "Branches Coordinated"
+    },
+    {
+      "year": "2012 — 2014",
+      "org": "Sykes Asia",
+      "title": "Employer Brand Reset",
+      "desc": "Built employee and recruitment branding initiatives that improved retention by 15% and lifted internal engagement by 25%.",
+      "metric": "+15%",
+      "metricNote": "Retention"
+    },
+    {
+      "year": "2014 — 2018",
+      "org": "Next Collision",
+      "title": "Client Growth Engine",
+      "desc": "Directed multi-client communication campaigns that lifted client site traffic from 50% to 70%.",
+      "metric": "50 → 70",
+      "metricNote": "Client Traffic, %"
+    }
+  ],
+  "experience": [
+    { "years": "Jan 2021 — Present",  "role": "Director of Marketing",    "org": "Chicago Public Library Foundation", "now": true  },
+    { "years": "Aug 2018 — Dec 2020", "role": "Marketing Manager",        "org": "Chicago Public Library Foundation", "now": false },
+    { "years": "Mar 2014 — Aug 2018", "role": "Consultant",               "org": "Next Collision",                    "now": false },
+    { "years": "Oct 2010 — Mar 2014", "role": "Communication Specialist", "org": "Sykes Asia",                        "now": false }
+  ],
+  "capabilities": [
+    {
+      "heading": "Strategy",
+      "items": [
+        "Brand messaging",
+        "Communications strategy",
+        "Audience development",
+        "Strategic campaign development",
+        "Stakeholder management"
+      ]
+    },
+    {
+      "heading": "Execution",
+      "items": [
+        "Copywriting and editing",
+        "Digital marketing",
+        "Social media strategy",
+        "Content systems",
+        "Website management"
+      ]
+    },
+    {
+      "heading": "Operations",
+      "items": [
+        "Project management",
+        "Crisis management",
+        "Public relations",
+        "Board committee management"
+      ]
+    },
+    {
+      "heading": "Tools",
+      "items": [
+        "Blackbaud",
+        "HubSpot",
+        "MailChimp",
+        "WordPress"
+      ]
+    }
+  ],
+  "education": {
+    "school": "University of the Philippines",
+    "credential": "Magna Cum Laude, 2007"
+  },
+  "affiliations": [
+    "Chicago Women in Philanthropy — Women Leadership Mentoring Program",
+    "Young Catholic Professionals"
+  ],
+  "contact": {
+    "title": "Tell me your story.",
+    "subtitle": "I read every email. Most of the good ones turn into work.",
+    "email": "ricagestrada@gmail.com",
+    "phone": "(312) 978·5027",
+    "phoneLink": "+13129785027",
+    "location": "Chicago, IL"
+  },
+  "footer": {
+    "mark": "Rica Bouso",
+    "meta": "DESIGNED & BUILT IN CHICAGO  /  2026"
+  }
+}

@@ -37,17 +37,21 @@ function Nav() {
 /* --------------------------------------------------------------------------
    HERO
    -------------------------------------------------------------------------- */
-function Hero() {
+function Hero({ content }) {
+  const { hero } = content;
+  /* Split title so the final phrase renders in italic accent */
+  const titleBase = hero.title.replace(/rooted in mission\.?$/, '');
+  const metaRole = hero.metaLine2.replace(/^Currently /, '');
   return (
     <header id="top" className="hero page">
       <div className="hero-body">
         <div className="hero-text">
           <h1 className="hero-title">
-            Communications strategist building brands <em>rooted in mission.</em>
+            {titleBase}<em>rooted in mission.</em>
           </h1>
           <p className="hero-meta">
-            15 years. Asia + US.<br />
-            Currently <strong>Director of Marketing</strong> at the Chicago Public Library Foundation.
+            {hero.metaLine1}<br />
+            Currently <strong>{metaRole}</strong>
           </p>
         </div>
         <figure className="hero-portrait">
@@ -69,7 +73,9 @@ function Hero() {
 /* --------------------------------------------------------------------------
    ABOUT — 4/7 asymmetric with pull quote
    -------------------------------------------------------------------------- */
-function About() {
+function About({ content }) {
+  const { about } = content;
+  const quoteBase = about.pullQuote.replace(/infrastructure\.?$/, '');
   return (
     <section id="about" className="about page">
       <div className="about-head">
@@ -79,18 +85,18 @@ function About() {
       <div className="about-grid">
         <div className="about-body">
           <Reveal as="p">
-            For 15 years I have translated organizational purpose into measurable growth: at one of the largest library systems in the country, at a global business services company supporting 15,000 employees, and at agencies serving multi-industry clients.
+            {about.paragraph1}
           </Reveal>
 
           <Reveal as="blockquote" className="about-quote" delay={80}>
-            I treat communications as <em>infrastructure</em>.
+            {quoteBase}<em>infrastructure</em>.
           </Reveal>
 
           <Reveal as="p" delay={60}>
-            Build the system, ground it in mission, and the metrics follow. I work the full stack of integrated marketing communications: brand strategy, audience development, content systems, digital marketing, PR, crisis response, and stakeholder management.
+            {about.paragraph2}
           </Reveal>
           <Reveal as="p" delay={120}>
-            I am equally comfortable in the strategy room and the content calendar. Big ideas matter; so does the email that ships on Tuesday.
+            {about.paragraph3}
           </Reveal>
         </div>
 
@@ -114,18 +120,8 @@ function About() {
 /* --------------------------------------------------------------------------
    STATS — 4-column (2×4) grid; one accented
    -------------------------------------------------------------------------- */
-const STATS = [
-{ value: 22, suffix: "M+", prefix: "", decimals: 0, accent: true, label: "Views / Live from the Library" },
-{ value: 800, suffix: "M", prefix: "", decimals: 0, accent: false, label: "PR impressions / 37 countries" },
-{ value: 117, suffix: "%", prefix: "", decimals: 0, accent: false, label: "Lift in social engagement" },
-{ value: 39, suffix: "%", prefix: "", decimals: 0, accent: false, label: "Email open rate / industry 21%" },
-{ value: 2, suffix: "×", prefix: "", decimals: 0, accent: false, label: "Website traffic" },
-{ value: 200, suffix: "+", prefix: "", decimals: 0, accent: false, label: "Qualified leads / single campaign" },
-{ value: 81, suffix: "", prefix: "", decimals: 0, accent: false, label: "Branches / 77 neighborhoods" },
-{ value: 2, suffix: "M", prefix: "$", decimals: 0, accent: false, label: "Event budget / 15,000-person programs" }];
-
-
-function Stats({ duration = 1200 }) {
+function Stats({ content, duration = 1200 }) {
+  const stats = content.stats;
   return (
     <section className="stats page">
       <div className="stats-head">
@@ -136,7 +132,7 @@ function Stats({ duration = 1200 }) {
       </div>
 
       <div className="stats-grid">
-        {STATS.map((s, i) =>
+        {stats.map((s, i) =>
         <Reveal key={i} className="stat" delay={i * 60}>
             <CountUp
             value={s.value}
@@ -145,7 +141,7 @@ function Stats({ duration = 1200 }) {
             decimals={s.decimals}
             accent={s.accent}
             duration={duration} />
-          
+
             <span className="stat-label">{s.label}</span>
           </Reveal>
         )}
@@ -157,58 +153,8 @@ function Stats({ duration = 1200 }) {
 /* --------------------------------------------------------------------------
    SELECTED WORK
    -------------------------------------------------------------------------- */
-const WORK = [
-{
-  year: "2020 — 2024",
-  org: "Chicago Public Library Foundation",
-  title: "Live from the Library",
-  desc: "Led marketing for a flagship cultural program that reached 22M+ viewers and generated 800M PR impressions across 37 countries.",
-  metric: "22M+",
-  metricNote: "Viewers"
-},
-{
-  year: "2022",
-  org: "Chicago Public Library Foundation",
-  title: "Donor Journey Campaign",
-  desc: "Designed and shipped an end-to-end nurture pipeline that converted general audiences into 200+ high-quality leads.",
-  metric: "200+",
-  metricNote: "Qualified Leads"
-},
-{
-  year: "2021",
-  org: "Chicago Public Library Foundation",
-  title: "Brand System Rebuild",
-  desc: "Authored the brand voice and guide adopted across internal and external channels. Doubled site traffic. Lifted social engagement 117%. Pushed email open rates to 39%.",
-  metric: "117%",
-  metricNote: "Social Lift"
-},
-{
-  year: "2020",
-  org: "Chicago Public Library Foundation",
-  title: "Live From Crisis: COVID-19 Communications",
-  desc: "Led crisis communications across 81 library branches during the pandemic, holding brand coherence while the operating reality shifted weekly.",
-  metric: "81",
-  metricNote: "Branches Coordinated"
-},
-{
-  year: "2012 — 2014",
-  org: "Sykes Asia",
-  title: "Employer Brand Reset",
-  desc: "Built employee and recruitment branding initiatives that improved retention by 15% and lifted internal engagement by 25%.",
-  metric: "+15%",
-  metricNote: "Retention"
-},
-{
-  year: "2014 — 2018",
-  org: "Next Collision",
-  title: "Client Growth Engine",
-  desc: "Directed multi-client communication campaigns that lifted client site traffic from 50% to 70%.",
-  metric: "50 → 70",
-  metricNote: "Client Traffic, %"
-}];
-
-
-function SelectedWork() {
+function SelectedWork({ content }) {
+  const work = content.work;
   return (
     <section id="work" className="work page">
       <Reveal as="div">
@@ -219,7 +165,7 @@ function SelectedWork() {
       </Reveal>
 
       <div role="list">
-        {WORK.map((w, i) =>
+        {work.map((w, i) =>
         <Reveal key={i} as="article" className="work-row" delay={i * 40} role="listitem">
             <div className="work-meta">
               <b>{w.year}</b>
@@ -243,14 +189,8 @@ function SelectedWork() {
 /* --------------------------------------------------------------------------
    EXPERIENCE — vertical timeline
    -------------------------------------------------------------------------- */
-const EXPERIENCE = [
-{ years: "Jan 2021 — Present", role: "Director of Marketing", org: "Chicago Public Library Foundation", now: true },
-{ years: "Aug 2018 — Dec 2020", role: "Marketing Manager", org: "Chicago Public Library Foundation" },
-{ years: "Mar 2014 — Aug 2018", role: "Consultant", org: "Next Collision" },
-{ years: "Oct 2010 — Mar 2014", role: "Communication Specialist", org: "Sykes Asia" }];
-
-
-function Experience() {
+function Experience({ content }) {
+  const experience = content.experience;
   return (
     <section id="experience" className="exp page">
       <Reveal as="div">
@@ -261,7 +201,7 @@ function Experience() {
       </Reveal>
 
       <div className="timeline">
-        {EXPERIENCE.map((e, i) =>
+        {experience.map((e, i) =>
         <Reveal key={i} as="article" className={`exp-row${e.now ? " is-now" : ""}`} delay={i * 60}>
             <div className="exp-year">
               <span>{e.years}</span>
@@ -281,36 +221,8 @@ function Experience() {
 /* --------------------------------------------------------------------------
    CAPABILITIES — 4-column indexed lists
    -------------------------------------------------------------------------- */
-const CAPS = [
-{ h: "Strategy", items: [
-  "Brand messaging",
-  "Communications strategy",
-  "Audience development",
-  "Strategic campaign development",
-  "Stakeholder management"]
-},
-{ h: "Execution", items: [
-  "Copywriting and editing",
-  "Digital marketing",
-  "Social media strategy",
-  "Content systems",
-  "Website management"]
-},
-{ h: "Operations", items: [
-  "Project management",
-  "Crisis management",
-  "Public relations",
-  "Board committee management"]
-},
-{ h: "Tools", items: [
-  "Blackbaud",
-  "HubSpot",
-  "MailChimp",
-  "WordPress"]
-}];
-
-
-function Capabilities() {
+function Capabilities({ content }) {
+  const caps = content.capabilities;
   return (
     <section className="cap page">
       <Reveal as="div">
@@ -321,9 +233,9 @@ function Capabilities() {
       </Reveal>
 
       <div className="cap-grid">
-        {CAPS.map((c, ci) =>
-        <Reveal key={c.h} as="div" className="cap-col" delay={ci * 80}>
-            <h3>{c.h}</h3>
+        {caps.map((c, ci) =>
+        <Reveal key={c.heading} as="div" className="cap-col" delay={ci * 80}>
+            <h3>{c.heading}</h3>
             <ul className="cap-list">
               {c.items.map((it, i) =>
             <li key={it} className="cap-item">
@@ -342,21 +254,23 @@ function Capabilities() {
 /* --------------------------------------------------------------------------
    EDUCATION + AFFILIATIONS
    -------------------------------------------------------------------------- */
-function EduAff() {
+function EduAff({ content }) {
+  const { education, affiliations } = content;
   return (
     <section className="eduaff page">
       <div className="eduaff-col">
         <Reveal as="h3">Education</Reveal>
         <Reveal as="div" delay={60}>
-          <h4 className="edu-name">University of the Philippines</h4>
-          <p className="edu-meta">Magna Cum Laude, 2007</p>
+          <h4 className="edu-name">{education.school}</h4>
+          <p className="edu-meta">{education.credential}</p>
         </Reveal>
       </div>
       <div className="eduaff-col">
         <Reveal as="h3">Affiliations</Reveal>
         <Reveal as="ul" className="aff-list" delay={60}>
-          <li>Chicago Women in Philanthropy &mdash; Women Leadership Mentoring Program</li>
-          <li>Young Catholic Professionals</li>
+          {affiliations.map((a, i) =>
+            <li key={i}>{a}</li>
+          )}
         </Reveal>
       </div>
     </section>);
@@ -366,28 +280,33 @@ function EduAff() {
 /* --------------------------------------------------------------------------
    CONTACT / FOOTER
    -------------------------------------------------------------------------- */
-function Contact() {
+function Contact({ content }) {
+  const { contact, footer } = content;
+  const emailHref = `mailto:${contact.email}?subject=Hello%20Rica`;
+  const phoneHref = `tel:${contact.phoneLink}`;
+  const titleBase = contact.title.replace(/story\.?$/, '');
+  const [emailUser, emailDomain] = contact.email.split('@');
   return (
     <section id="contact" className="contact page">
       <Reveal as="h2" className="contact-title">
-        Tell me your <em style={{ fontStyle: "italic", color: "var(--terracotta)" }}>story.</em>
+        {titleBase}<em style={{ fontStyle: "italic", color: "var(--terracotta)" }}>story.</em>
       </Reveal>
       <Reveal as="p" className="contact-sub" delay={80}>
-        I read every email. Most of the good ones turn into work.
+        {contact.subtitle}
       </Reveal>
 
       <Reveal as="div" className="contact-cta-wrap" delay={120}>
         <a
-          href="mailto:ricagestrada@gmail.com?subject=Hello%20Rica"
+          href={emailHref}
           className="cta"
-          aria-label="Write to Rica at ricagestrada@gmail.com">
-          
+          aria-label={`Write to Rica at ${contact.email}`}>
+
           <span className="cta-ticker" aria-hidden="true">
             <span>Open inbox</span>
             <span className="cta-dot"></span>
             <span>Replies within 48 hours</span>
             <span className="cta-dot"></span>
-            <span>Chicago, IL</span>
+            <span>{contact.location}</span>
           </span>
 
           <span className="cta-body">
@@ -398,7 +317,7 @@ function Contact() {
               </span>
             </span>
             <span className="cta-mail">
-              ricagestrada<span className="cta-at">@</span>gmail.com
+              {emailUser}<span className="cta-at">@</span>{emailDomain}
             </span>
           </span>
 
@@ -411,16 +330,15 @@ function Contact() {
                 fill="none"
                 strokeLinecap="square"
                 strokeLinejoin="miter" />
-              
             </svg>
           </span>
 
           <span className="cta-fill" aria-hidden="true"></span>
         </a>
 
-        <a href="tel:+13129785027" className="cta-secondary">
+        <a href={phoneHref} className="cta-secondary">
           <span className="ck">Phone</span>
-          <span className="cta-secondary-num">(312) 978&middot;5027</span>
+          <span className="cta-secondary-num">{contact.phone}</span>
           <span className="cta-secondary-meta">Voice, no texts</span>
         </a>
       </Reveal>
@@ -439,8 +357,8 @@ function Contact() {
       </Reveal>
 
       <footer className="foot">
-        <span className="foot-mark">Rica Bouso</span>
-        <span className="foot-meta">DESIGNED & BUILT IN CHICAGO  /  2026</span>
+        <span className="foot-mark">{footer.mark}</span>
+        <span className="foot-meta">{footer.meta}</span>
       </footer>
     </section>);
 

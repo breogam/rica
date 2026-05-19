@@ -71,6 +71,19 @@ function CountUp({ value, suffix = "", prefix = "", duration = 1200, decimals = 
   );
 }
 
+/* Fetch content.json once at startup. Returns null while loading. */
+function useContent() {
+  const [content, setContent] = useState(null);
+  useEffect(() => {
+    fetch('/content.json')
+      .then((r) => r.json())
+      .then(setContent)
+      .catch(() => console.error('Could not load content.json'));
+  }, []);
+  return content;
+}
+
 window.Reveal = Reveal;
 window.CountUp = CountUp;
 window.REDUCED = REDUCED;
+window.useContent = useContent;
