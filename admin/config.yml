@@ -1,0 +1,103 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: uploads
+public_folder: /uploads
+
+collections:
+  - name: "site"
+    label: "Site Content"
+    files:
+      - name: "content"
+        label: "All Content"
+        file: "content.json"
+        format: json
+        fields:
+          - label: "Hero"
+            name: "hero"
+            widget: object
+            fields:
+              - { label: "Headline", name: "title", widget: string, hint: "The full hero headline. Keep 'rooted in mission.' at the end — it renders in the accent colour." }
+              - { label: "Years / location line", name: "metaLine1", widget: string, hint: "e.g. 15 years. Asia + US." }
+              - { label: "Current role (without 'Currently')", name: "metaLine2", widget: string, hint: "e.g. Currently Director of Marketing at the Chicago Public Library Foundation." }
+
+          - label: "About"
+            name: "about"
+            widget: object
+            fields:
+              - { label: "Paragraph 1", name: "paragraph1", widget: text }
+              - { label: "Pull quote", name: "pullQuote", widget: string, hint: "Keep 'infrastructure.' at the end — it renders in italic." }
+              - { label: "Paragraph 2", name: "paragraph2", widget: text }
+              - { label: "Paragraph 3", name: "paragraph3", widget: text }
+
+          - label: "Stats (By the Numbers)"
+            name: "stats"
+            widget: list
+            fields:
+              - { label: "Number", name: "value", widget: number }
+              - { label: "Prefix (e.g. $)", name: "prefix", widget: string, default: "", required: false }
+              - { label: "Suffix (e.g. M+, %, ×)", name: "suffix", widget: string, default: "" }
+              - { label: "Decimal places", name: "decimals", widget: number, default: 0 }
+              - { label: "Label (shown below the number)", name: "label", widget: string }
+              - { label: "Highlight in accent colour?", name: "accent", widget: boolean, default: false, hint: "Turn on for the one stat you want to stand out (e.g. 22M+)." }
+
+          - label: "Selected Work"
+            name: "work"
+            widget: list
+            fields:
+              - { label: "Year(s)", name: "year", widget: string, hint: "e.g. 2020 — 2024 or just 2022" }
+              - { label: "Organisation", name: "org", widget: string }
+              - { label: "Project title", name: "title", widget: string }
+              - { label: "Description", name: "desc", widget: text }
+              - { label: "Key metric", name: "metric", widget: string, hint: "e.g. 22M+ or 117%" }
+              - { label: "Metric label", name: "metricNote", widget: string, hint: "e.g. Viewers or Social Lift" }
+
+          - label: "Experience"
+            name: "experience"
+            widget: list
+            fields:
+              - { label: "Date range", name: "years", widget: string, hint: "e.g. Jan 2021 — Present" }
+              - { label: "Role title", name: "role", widget: string }
+              - { label: "Organisation", name: "org", widget: string }
+              - { label: "Current role?", name: "now", widget: boolean, default: false, hint: "Shows the 'Now' badge in the timeline." }
+
+          - label: "Capabilities"
+            name: "capabilities"
+            widget: list
+            fields:
+              - { label: "Category heading", name: "heading", widget: string }
+              - label: "Skills"
+                name: "items"
+                widget: list
+                field: { label: "Skill", name: "item", widget: string }
+
+          - label: "Education"
+            name: "education"
+            widget: object
+            fields:
+              - { label: "School", name: "school", widget: string }
+              - { label: "Credential and year", name: "credential", widget: string, hint: "e.g. Magna Cum Laude, 2007" }
+
+          - label: "Affiliations"
+            name: "affiliations"
+            widget: list
+            field: { label: "Affiliation", name: "item", widget: string }
+
+          - label: "Contact"
+            name: "contact"
+            widget: object
+            fields:
+              - { label: "Section headline", name: "title", widget: string, hint: "Keep 'story.' at the end — it renders in the accent colour." }
+              - { label: "Subline", name: "subtitle", widget: string }
+              - { label: "Email address", name: "email", widget: string }
+              - { label: "Phone (display format)", name: "phone", widget: string, hint: "e.g. (312) 978·5027" }
+              - { label: "Phone (link format)", name: "phoneLink", widget: string, hint: "e.g. +13129785027 — no spaces or dashes" }
+              - { label: "Location", name: "location", widget: string, hint: "Shown in the contact ticker, e.g. Chicago, IL" }
+
+          - label: "Footer"
+            name: "footer"
+            widget: object
+            fields:
+              - { label: "Name mark", name: "mark", widget: string }
+              - { label: "Footer caption", name: "meta", widget: string, hint: "e.g. DESIGNED & BUILT IN CHICAGO  /  2026" }
